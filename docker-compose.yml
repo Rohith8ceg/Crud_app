@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres:13.3-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: '#anangoor112'
+      POSTGRES_DB: users_crud_task2
